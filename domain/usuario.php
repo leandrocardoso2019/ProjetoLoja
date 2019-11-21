@@ -5,7 +5,7 @@ class Usuario{
     public $senha;
     public $foto;
 
-public function __constructor($db){
+public function __construct($db){
     $this->conexao = $db;
 }
 /*Fução listar para selecionar todos os usuarios cadastrados no banco
@@ -94,13 +94,14 @@ $stmt=$this->conexao->prepare($query);
 $this->senha = md5($this->senha);
 
 $stmt->bindParam(1,$this->senha);
-$stmt->bindParam(2,$this->id;
+$stmt->bindParam(2,$this->id);
 
 if($stmt->execute()){
     return true;
 }
 else{
     return false;
+}
 }
 public function apagar(){
     $query = "delete from usuario where id=?";
@@ -113,7 +114,7 @@ public function apagar(){
         return false;
     }
 }
-}
+
 
 
 }
