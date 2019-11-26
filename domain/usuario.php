@@ -74,7 +74,7 @@ para cadastrar em banco
     }
 }
 public function alterarFoto(){
-    $query = "update usuario set foto=:f where id=:1";
+    $query = "update usuario set foto=:f where id=:i";
     $stmt = $this-> conexao->prepare($query);
     $stmt->bindParam(":f",$this->foto);
     $stmt->bindParam(":i",$this->id);
