@@ -53,7 +53,7 @@ para cadastrar em banco
     }
 }
 public function alterarContato(){
-    $query = "update usuario set telefone=:t, email=:e where id=:i";
+    $query = "update contato set telefone=:t, email=:e where id=:i";
     $stmt = $this-> conexao->prepare($query);
     $stmt->bindParam(":t",$this->telefone);
     $stmt->bindParam(":e",$this->email);
