@@ -56,9 +56,9 @@ strip_tag-> trata os dados em seus formatos inteiro, double ou decimal
 htmlspecialchar -> retirar as aspas e os 2 pontos que vem do formato json
 para cadastrar em banco
 */
-    $this->nomeusuario = htmlspecialchars(strip_tags($this->nomeusuario));
-    $this->senha = htmlspecialchars(strip_tags($this->senha));
-    $this->foto = htmlspecialchars(strip_tags($this->foto));
+    $this->nomeusuario = htmlspecialchars (strip_tags($this->nomeusuario));
+    $this->senha = htmlspecialchars (strip_tags($this->senha));
+    $this->foto = htmlspecialchars (strip_tags($this->foto));
 
     #encriptografar a senha 
     $this->senha= md5($this->senha);
