@@ -41,7 +41,7 @@ email varchar (100) not null unique
   imagem4 varchar (200) not null
  )engine InnoDB;
  
-   create table estoque(
+create table estoque(
  id int auto_increment primary key,
 id_produto int not null,
 quantidade int not null,
