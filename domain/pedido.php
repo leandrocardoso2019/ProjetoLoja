@@ -1,18 +1,18 @@
 <?php
-class Contato{
+class Pedido{
     public $id;
-    public $telefone;
-    public $email;
+    public $id_cliente;
+    public $data_pedido;
     
 
 public function __construct($db){
     $this->conexao = $db;
 }
-/*Fução listar para selecionar todos os contatos cadastrados no banco
+/*Fução listar para selecionar todos os pedidos cadastrados no banco
 de dados. Essa função retorna uma lista com todos os dados
  */
 public function listar(){
-    $query = "select * from contato";
+    $query = "select * from pedido";
 /*
 Foi criada a variavel stmt para guardar a preparação da consulta select que será executada posteriomente
 */
@@ -23,10 +23,10 @@ Foi criada a variavel stmt para guardar a preparação da consulta select que se
     return $stmt;
 }
 /*
-Função para cadastrar os contatos no banco de dados
+Função para cadastrar os pedidos no banco de dados
 */
 public function cadastro(){
-    $query = "insert into contato set telefone=:t, email=:e";
+    $query = "insert into pedido set id_cliente=:c";
 
     $stmt = $this->conexao->prepare($query);
 /*
@@ -36,13 +36,13 @@ strip_tag-> trata os dados em seus formatos inteiro, double ou decimal
 htmlspecialchar -> retirar as aspas e os 2 pontos que vem do formato json
 para cadastrar em banco
 */
-    $this->telefone = htmlspecialchars (strip_tags($this->telefone));
-    $this->email = htmlspecialchars (strip_tags($this->email));
+    $this->id_cliente = htmlspecialchars (strip_tags($this->id_cliente));
+    
 
     #encriptografar a senha 
     
-    $stmt->bindParam(":t",$this->telefone);
-    $stmt->bindParam(":e",$this->email);
+    $stmt->bindParam(":c",$this->id_cliente);
+    
 
     
     if($stmt->execute()){
@@ -52,12 +52,13 @@ para cadastrar em banco
         return false;
     }
 }
-public function alterarContato(){
-    $query = "update contato set telefone=:t, email=:e where id=:i";
+public function alterarpedido(){
+    $query = "update pedido set id_cliente=:c where id=:i";
     $stmt = $this-> conexao->prepare($query);
-    $stmt->bindParam(":t",$this->telefone);
-    $stmt->bindParam(":e",$this->email);
+    $stmt->bindParam(":c",$this->id_cliente);
     $stmt->bindParam(":i",$this->id);
+   
+ 
 
     if($stmt->execute()){
         return true;
@@ -68,7 +69,7 @@ public function alterarContato(){
 }
 
 public function apagar(){
-    $query = "delete from contato where id=?";
+    $query = "delete from pedido where id=?";
     $stmt= $this->conexao->prepare($query);
     $stmt->bindParam(1,$this->id);
     if($stmt->execute()){
