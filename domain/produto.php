@@ -31,7 +31,7 @@ Foi criada a variavel stmt para guardar a preparação da consulta select que se
 Função para cadastrar os produtos no banco de dados
 */
 public function cadastro(){
-    $query = "insert into produto set nome=:n, descricao=:d, preco=:p, imagem1=:i1,imagem=:i2, imagem3=:i3, imagem=:i4";
+    $query = "insert into produto set nome=:n, descricao=:d, preco=:p, imagem1=:i1,imagem2=:i2, imagem3=:i3, imagem4=:i4";
 
     $stmt = $this->conexao->prepare($query);
 /*
@@ -46,7 +46,7 @@ para cadastrar em banco
     $this->preco = htmlspecialchars (strip_tags($this->preco));
     $this->imagem1 = htmlspecialchars (strip_tags($this->imagem1));
     $this->imagem2 = htmlspecialchars (strip_tags($this->imagem2));
-    $this->imagem3 = htmlspecialchars (strip_tags($this->imagem3);
+    $this->imagem3 = htmlspecialchars (strip_tags($this->imagem3));
     $this->imagem4 = htmlspecialchars (strip_tags($this->imagem4));
 
     #encriptografar a senha 
@@ -68,7 +68,7 @@ para cadastrar em banco
     }
 }
 public function alterarproduto(){
-    $query = "update produto set nome=:n, descricao=:d, preco=:p, imagem1=:i1,imagem=:i2, imagem3=:i3, imagem=:i4 where id=:i";
+    $query = "update produto set nome=:n, descricao=:d, preco=:p, imagem1=:i1,imagem2=:i2, imagem3=:i3, imagem4=:i4 where id=:i";
     $stmt = $this-> conexao->prepare($query);
     $stmt->bindParam(":n",$this->nome);
     $stmt->bindParam(":d",$this->descricao);
