@@ -54,3 +54,6 @@ Atualmente, o Ionic Framework tem integrações oficiais com Angular e React,
   Abaixo é apresentado o diagrama de banco de dados 
   desenvolvidos para este projeto.
 ![](db/img/diagramabanco.png)
+
+## Work FLow do APP
+![](img/workflow.png)
