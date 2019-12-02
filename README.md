@@ -1,5 +1,5 @@
 # Loja
-O projeto loja é um _estudo_ de como construir, consumir e
+O projeto loja é um __estudo__ de como construir, consumir e
 aplicar uma API em [php](https://www.php.net/), com uso de [IONIC](https://ionicframework.com/). Onde usamos o php
 para criar a API com o padrão de desenvolvimento em camadas
 seguindo o paradigma da programação orientada a objeto e gerando 
