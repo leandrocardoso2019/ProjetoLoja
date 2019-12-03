@@ -22,6 +22,42 @@ const routes: Routes = [
   {
     path: 'sair',
     loadChildren: () => import('./sair/sair.module').then( m => m.SairPageModule)
+  },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then( m => m.LoginPageModule)
+  },
+  {
+    path: 'cadastrar',
+    loadChildren: () => import('./cadastrar/cadastrar.module').then( m => m.CadastrarPageModule)
+  },
+  {
+    path: 'politica',
+    loadChildren: () => import('./politica/politica.module').then( m => m.PoliticaPageModule)
+  },
+  {
+    path: 'detalhepedido',
+    loadChildren: () => import('./detalhepedido/detalhepedido.module').then( m => m.DetalhepedidoPageModule)
+  },
+  {
+    path: 'pagamento',
+    loadChildren: () => import('./pagamento/pagamento.module').then( m => m.PagamentoPageModule)
+  },
+  {
+    path: 'alterarfoto',
+    loadChildren: () => import('./alterarfoto/alterarfoto.module').then( m => m.AlterarfotoPageModule)
+  },
+  {
+    path: 'alterarsenha',
+    loadChildren: () => import('./alterarsenha/alterarsenha.module').then( m => m.AlterarsenhaPageModule)
+  },
+  {
+    path: 'detalheproduto',
+    loadChildren: () => import('./detalheproduto/detalheproduto.module').then( m => m.DetalheprodutoPageModule)
+  },
+  {
+    path: 'efetuarpedido',
+    loadChildren: () => import('./efetuarpedido/efetuarpedido.module').then( m => m.EfetuarpedidoPageModule)
   }
 ];
 
