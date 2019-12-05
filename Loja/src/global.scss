@@ -24,3 +24,11 @@
 @import "~@ionic/angular/css/text-alignment.css";
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
+/*css personalizado*/
+.menu{
+    background-image: url("assets/img/foto.png");
+    background-size: 100%;
+    color:white;
+    padding: 15px 0px;
+    
+}
