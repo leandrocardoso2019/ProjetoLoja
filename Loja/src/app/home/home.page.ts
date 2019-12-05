@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +18,11 @@ export class HomePage {
   na home.
   */
  public produtos:Array<object>=[];
-  constructor(private http:HttpClient) {}
+  constructor(private http:HttpClient, public navCtrl:NavController) {}
+
+  public navDetalheProduto(id:string){
+    this.navCtrl.navigateForward("detalheproduto?id=+id");
+  }
   /* O comanod ngOnInit(ng->todos os comando internos do angular| On->Ativar, ligar|
      Init-> Initialize = iniciar)
     No momento em que a página home inicializa será feita uma requisição http

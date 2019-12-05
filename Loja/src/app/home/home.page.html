@@ -13,7 +13,8 @@
     <ion-searchbar></ion-searchbar>
 
     <ion-card class="welcome-card" *ngFor="let p of produtos">
-      <img src="/assets/{{p.imagem1}}" alt="" />
+
+      <img src="/assets/{{p.imagem1}}" alt="" (click)="navDetalheProduto(p.id)"/>
       <ion-card-header>
        
         <ion-card-title> {{ p.nome }}</ion-card-title>
