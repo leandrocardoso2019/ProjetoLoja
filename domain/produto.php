@@ -28,13 +28,13 @@ Foi criada a variavel stmt para guardar a preparação da consulta select que se
     return $stmt;
 }
 
-public function pesquisar_id(){
+public function pesquisar_id($idproduto){
     $query = "select * from produto where id=?";
 /*
 Foi criada a variavel stmt para guardar a preparação da consulta select que será executada posteriomente
 */
     $stmt = $this->conexao->prepare($query);
-    $stmt->bindParam(1,$this->id);
+    $stmt->bindParam(1,$idproduto);
     #execução da consulta e guarda de dados na variavel stmt
     $stmt->execute();
     #retorna os dados do usuario a camada data.

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from '@ionic/angular';
 import { ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpRequest, HttpHeaders,  } from '@angular/common/http';
 
 @Component({
   selector: 'app-detalheproduto',
@@ -8,8 +9,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./detalheproduto.page.scss'],
 })
 export class DetalheprodutoPage implements OnInit {
+  private url:string="http://localhost/dbloja/data/produto/pesquisar_id.php";
 private idProduto:any;
-  constructor(private active: ActivatedRoute){} 
+public produtos: Array<Object>=[];
+  constructor(private active: ActivatedRoute, private http:HttpClient){} 
 
   ngOnInit() {
     this.active.params.subscribe((params)=>{
@@ -17,6 +20,21 @@ private idProduto:any;
       console.log("Esse id está em Detalhes", params);
     });
     console.log("Definitivo "+this.idProduto);
+    let dados = {"id":this.idProduto};
+    var headers = new HttpHeaders();
+    headers.append("Accpet","appication/json");
+    headers.append("Content-Type","application/json");
+    // const headersOpcoes = new HttpRequest.arguments({headers:headers})
+
+    this.http.get(this.url,{headers:headers,params: dados}).subscribe(
+      data=>{
+        const prod = (data as any);
+       this.produtos = prod.saida;
+       console.log(this.produtos);
+      }, error=>{
+        console.log("Erro ao pesquisar a API "+error);
+      }      
+      )
   }
 
 }

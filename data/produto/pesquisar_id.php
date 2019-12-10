@@ -35,13 +35,14 @@ a comunicação com o banco de dados e também a variavel conexao. Utilizado
 para o uso dos comandos de CRUD
 */
 $produto = new Produto($db);
+$idproduto = $_GET["id"];
 $data = json_decode(file_get_contents("php://input"));
 /*
  A Variavel $stmt foi criada para guardar o retorno da consulta que esta na função listar. Dentro da função lista()
  temos uma consulta no formato sql que seleciona todos os produto ("Select * from produto")
  */
-$produto->id = $data->id;
-$stmt = $produto->pesquisar_id();
+// $produto->id = $data->id;
+$stmt = $produto->pesquisar_id($idproduto);
 /*
 Se a consulta retornar uma quantidade de linhas maior que 0(zero), então será 
 construido um array com os dados dos usarios.
